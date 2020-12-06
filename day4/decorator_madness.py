@@ -61,12 +61,26 @@ def count(func):
         return int(bool(func(*args, **kwargs)))
     return wrapper
 
-def read(func):
+def total(func):
     def wrapper(*args, **kwargs):
         return sum(func(a, *args[1:], **kwargs) for a in args[0])
     return wrapper
 
-@read
+
+def print_(func):
+    def wrapper(*args, **kwargs):
+        print(func(*args, **kwargs))
+    return wrapper
+
+
+def read(func):
+    def wrapper(*args, **kwargs):
+        with open(args[0])as fh:
+            return func*fh.read().split("\n\n")
+    return wrapper
+
+@print_
+@total
 @count
 @validate_iyr
 @validate_byr
@@ -80,4 +94,4 @@ def solve(text):
 
 with open("input.txt") as file_handle:
     text = file_handle.read().split("\n\n")
-print(solve(text))
+solve(text)
