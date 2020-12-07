@@ -73,12 +73,6 @@ def print_(func):
     return wrapper
 
 
-def read(func):
-    def wrapper(*args, **kwargs):
-        with open(args[0])as fh:
-            return func*fh.read().split("\n\n")
-    return wrapper
-
 @print_
 @total
 @count
