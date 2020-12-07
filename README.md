@@ -6,14 +6,15 @@ It's not written to professional standards, expected to be reused, be maintainab
 be robust, or even executable for others...
 
 
-Languages used:
+Number of solutions in language:
 
-
- [*] BASH\
+ [4] Python\
+ [1] BASH\
+ [1] GoLang\
+ [1] Haskell\
+ [1] Javascript\
+ [1] Kotlin\
  [ ] C++\
- [*] GoLang\
- [*] Haskell\
- [*] Javascript\
- [*] Kotlin\
- [*] Python\
  [ ] Ruby
+ 
+N.B. some days have multiple solutions
