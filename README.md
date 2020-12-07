@@ -12,7 +12,7 @@ Languages used:
  [*] BASH\
  [ ] C++\
  [*] GoLang\
- [ ] Haskell\
+ [*] Haskell\
  [*] Javascript\
  [*] Kotlin\
  [*] Python\
