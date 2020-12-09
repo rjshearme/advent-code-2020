@@ -8,13 +8,13 @@ be robust, or even executable for others...
 
 Number of solutions in language:
 
- [4] Python\
+ [5] Python\
  [1] BASH\
  [1] GoLang\
  [1] Haskell\
  [1] Javascript\
  [1] Kotlin\
- [ ] C++\
+ [1 ] C++\
  [ ] Ruby
  
 N.B. some days have multiple solutions
