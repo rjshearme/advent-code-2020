@@ -18,7 +18,7 @@ class DirectedGraph {
 
   public:
     void addEdge(string fromBag, string toBag);
-    void addQuantifiedEdge(string fromBag, string toBag, int toBagQuantity);
+    void addQuantifiedEdge(string fromBag, string toBag, int totagQuantity);
     void print();
     int numberBagsContaining(string innerBag);
     set<string> bagsContaining(string innerBag);

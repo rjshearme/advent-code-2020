@@ -15,6 +15,5 @@ Number of solutions in language:
  [1] Javascript\
  [1] Kotlin\
  [1 ] C++\
- [ ] Ruby
  
 N.B. some days have multiple solutions
