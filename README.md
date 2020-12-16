@@ -12,7 +12,7 @@ Number of solutions in language:
  [1] BASH\
  [1] GoLang\
  [1] Haskell\
- [1] Javascript\
+ [2] Javascript\
  [1] Kotlin\
  [1 ] C++\
  

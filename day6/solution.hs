@@ -7,7 +7,6 @@ solvePart1 :: String -> IO Int
 solvePart1 inputString = do
   return $ countCustomsDeclarationsPart1 (splitOn "\n\n" inputString)
 
-
 countCustomsDeclarationsPart1 :: [[Char]] -> Int
 countCustomsDeclarationsPart1 groupStrings = sum $ map numberOfUniqueDeclarations groupStrings
 
