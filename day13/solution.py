@@ -1,7 +1,6 @@
 import math
 
 
-
 def get_first_available_departure_time_for_bus(bus_id, departure_time):
     time_found = 0
     while time_found < departure_time:
@@ -24,27 +23,45 @@ def part1():
 
     return output_val
 
-def is_consecutive_dep_time(dep_time, bus_ids):
-    for offset, bus_id in enumerate(bus_ids):
-        if bus_id == 0:
-            continue
-        if (dep_time + offset) % bus_id != 0:
-            return False
 
-    return True
+def inverse(a: int, n: int):
+    t = 0
+    newt = 1
+    r = n
+    newr = a
+
+    while newr != 0:
+        quotient = r // newr
+        (t, newt) = (newt, t - quotient * newt)
+        (r, newr) = (newr, r - quotient * newr)
+
+    if r > 1:
+        raise Exception("a is not invertible")
+    if t < 0:
+        t += n
+
+    return t
+
+def chinese_remainder_theorem(bus_ids):
+    m = [bus_id for bus_id in bus_ids if bus_id != "x"]
+    a = [bus_id-idx for idx, bus_id in enumerate(bus_ids) if bus_id != "x"]
+
+    M = 1
+    for v in m:
+        M *= v
+    Mi = [M // m[i] for i in range(len(m))]
+    yi = [inverse(Mi[i], m[i]) for i in range(len(m))]
+
+    X = sum([a[i] * Mi[i] * yi[i] for i in range(len(yi))])
+    return X % M
 
 
 def part2():
     with open("input.txt") as fh:
-        _ = fh.readline()
-        bus_ids = [int(id_) if id_!="x" else 0 for id_ in fh.readline().split(",")]
+        _ = int(fh.readline())
+        bus_ids = [int(id_) if id_ != "x" else "x" for id_ in fh.readline().split(",")]
 
-    jump_val = max(bus_ids)
-    dep_time = 0
-    while not is_consecutive_dep_time(dep_time, bus_ids):
-        dep_time += jump_val
+    return chinese_remainder_theorem(bus_ids)
 
-    return dep_time
 
-f = part2()
 print(part2())
