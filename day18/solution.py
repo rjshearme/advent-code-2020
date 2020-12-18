@@ -98,11 +98,14 @@ def reverse_polish_notation(tokens):
             else:
                 output.append("+")
                 operators.append("+")
-        else:
+        elif token == "*":
             poperator = operators.pop()
-            output.append(poperator)
-            operators.append(token)
-        print(output, operators)
+            if poperator == "(":
+                operators.append("(")
+                operators.append(token)
+            else:
+                output.append(poperator)
+                operators.append(token)
 
     output.extend(operators[::-1])
     return output
@@ -120,7 +123,7 @@ def calculate_rpn(rpn):
         op_ind = first_op_ind(rpn)
         val = rpn[op_ind-1] * rpn[op_ind-2] if rpn[op_ind] == "*" else rpn[op_ind-1] + rpn[op_ind-2]
         rpn = rpn[:op_ind-2] + [val] + rpn[op_ind+1:]
-    return rpn
+    return rpn.pop()
 
 
 def evaluate2(line):
